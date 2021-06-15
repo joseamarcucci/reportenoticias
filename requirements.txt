@@ -3,3 +3,4 @@ streamlit==0.79.0
 sqlalchemy
 pymysql
 mysql.connector
+socks
