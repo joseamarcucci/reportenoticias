@@ -13,8 +13,8 @@ st.markdown("<h2 style='text-align: left; color: #00b8e1;'>Reporte de envio bole
 buff1,buff, col = st.beta_columns([1,2,2])
 with buff1:st.markdown("<a href='https://noticias.clayss.org' target='_blank'><img src='https://clayss.org/sites/default/files/logo_blanco2.png' style='width:90%;border-radius:3px;background: #FFA600;'></a>", unsafe_allow_html=True)
 display_code =   buff1.radio("Mostrar", ( "Envios","Rebotes", "Suscriptores", "Buscar"))
-hostname = socket.gethostname()
-local_ip = socket.gethostbyname(hostname)
+#hostname = socket.gethostname()
+#local_ip = socket.gethostbyname(hostname)
 db_connection_str = 'mysql+pymysql://clayssorg_orgar_2020:anitA&2020@69.16.228.38:3306/clayssorg_noti_ext'
 db_connection = create_engine(db_connection_str)
 
@@ -24,7 +24,7 @@ df2 = pd.read_sql('SELECT * FROM simplenews_subscriber', con=db_connection)
 df['timestamp']=pd.to_datetime(df['timestamp'],unit='s')
 df['timestamp'] = pd.to_datetime(df['timestamp']).dt.strftime('%d/%m/%y')
 #lst = re.findall('\S+@\S+', s) 
-st.write(local_ip)
+#st.write(local_ip)
 df.index = [""] * len(df) 
 df2.index = [""] * len(df2) 
 if display_code == "Envios":
