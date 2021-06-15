@@ -98,17 +98,27 @@ if __name__ == "__main__":
     df = pd.read_sql('SELECT * FROM watchdog where type="mail"', con=cnx)
     df.to_csv (r'C:\Usuarios\jmarcucci\export_data.csv', index = False)
     df2 = pd.read_sql('SELECT * FROM simplenews_subscriber', con=cnx)
+    df3 = pd.read_sql('SELECT * FROM simplenews_mail_spool', con=cnx)
 #df['Marca temporal'] = pd.to_datetime(df['Marca temporal']).dt.strftime('%d/%m/%y')
     df['timestamp']=pd.to_datetime(df['timestamp'],unit='s')
     df['timestamp'] = pd.to_datetime(df['timestamp']).dt.strftime('%d/%m/%y')
+    df3['timestamp']=pd.to_datetime(df3['timestamp'],unit='s')
+    df3['timestamp'] = pd.to_datetime(df3['timestamp']).dt.strftime('%d/%m/%y')
 
 #lst = re.findall('\S+@\S+', s) 
     
     df.index = [""] * len(df) 
     df2.index = [""] * len(df2) 
+    df3.index = [""] * len(df3) 
     if display_code == "Envios":
    
         buff.table(df[['message','variables','timestamp']])
+    if display_code == "Rebotes":
+        df53=pd.value_counts(df3['mail'].unique())
+        times53t=df53.index
+        aulas5t=len(times53t)
+        with buff1:st.write("rebotes:", aulas5t)
+        buff.table(df3[['mail','newsletter_id','timestamp']])
     if display_code == "Suscriptores":
         df5=pd.value_counts(df2['mail'].unique())
         times3t=df5.index
