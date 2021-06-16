@@ -98,7 +98,7 @@ if __name__ == "__main__":
     df = pd.read_sql('SELECT * FROM watchdog where type="mail"', con=cnx)
     df.to_csv (r'C:\Usuarios\jmarcucci\export_data.csv', index = False)
     df2 = pd.read_sql('SELECT * FROM simplenews_subscriber', con=cnx)
-    df3 = pd.read_sql('SELECT DISTINCT mail FROM simplenews_mail_spool', con=cnx)
+    df3 = pd.read_sql('SELECT * FROM simplenews_mail_spool', con=cnx)
 #df['Marca temporal'] = pd.to_datetime(df['Marca temporal']).dt.strftime('%d/%m/%y')
     df['timestamp']=pd.to_datetime(df['timestamp'],unit='s')
     df['timestamp'] = pd.to_datetime(df['timestamp']).dt.strftime('%d/%m/%y')
