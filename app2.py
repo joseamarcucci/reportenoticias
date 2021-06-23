@@ -190,17 +190,17 @@ if display_code=='Enviar Boletín':
 
           except EmailNotValidError as e:
 
-            sheet2.append_row([hoy2,to_email,news, 'No enviada; mal nombre de dominio'])
+            sheet2.append_row([hoy2,a,to_email,news, 'No enviada; mal nombre de dominio'])
             continue
           from validate_email import validate_email
           is_valid = validate_email(email_address=to_email, check_format=True)
-          st.sidebar.write(is_valid)
-          if is_valid==True:
+          
+          if is_valid==True or is_valid==None:
             server.send_message(msg)
-            sheet2.append_row([hoy2,to_email,news, 'enviada'])
+            sheet2.append_row([hoy2,a,to_email,news, 'enviada'])
        
           else:
-            sheet2.append_row([hoy2,to_email,news, 'No enviada; mal nombre en la cuenta'])
+            sheet2.append_row([hoy2,a,to_email,news, 'No enviada; mal nombre en la cuenta'])
       st.sidebar.write(news+' Enviada')
 if display_code == "No enviados":
   datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1v6hHLiNhviftzcyVP3x6RKYYsp16rNBXhFkARO1mg4k/export?format=csv&gid=70901914')
