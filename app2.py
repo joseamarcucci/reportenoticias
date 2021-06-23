@@ -45,6 +45,10 @@ st.markdown(
     border: 2px solid rgb(246, 51, 102);
     border-radius: 3px;
 }
+.st-cx {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #dedede;
+}
         .css-1l02zno {
     background-color: #fff;
     background-attachment: fixed;
