@@ -174,7 +174,7 @@ if display_code=='Enviar Boletín':
         
         msg = EmailMessage()
         msg['Subject'] = news
-        msg['From'] = 'jmarcucci@usal.edu.ar'
+        msg['From'] = 'prensa@usal.edu.ar'
         msg['To'] = to_email
         #msg.set_content('And it actually works')
         msg.set_content(r.text, subtype='html')
@@ -190,7 +190,7 @@ if display_code=='Enviar Boletín':
 
           except EmailNotValidError as e:
 
-            sheet2.append_row([hoy2,to_email,news, 'No enviada; mal nombre de dominio'])
+            sheet2.append_row([hoy2,a,to_email,news, 'No enviada; mal nombre de dominio'])
             continue
           from validate_email import validate_email
           is_valid = validate_email(email_address=to_email, check_format=True)
