@@ -45,7 +45,7 @@ st.markdown(
     border: 2px solid rgb(246, 51, 102);
     border-radius: 3px;
 }
-        .css-17eq0hr {
+        .css-1l02zno {
     background-color: #fff;
     background-attachment: fixed;
     border-right:2px solid #e65100;
