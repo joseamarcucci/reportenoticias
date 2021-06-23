@@ -121,10 +121,13 @@ if display_code=='Enviar Boletín':
     #components.html("https://noticias.clayss.org/mails/clayss.html", width=200, height=200)
     #components.iframe("https://noticias.clayss.org/mails/clayss.html", width=800, height=900,, encoding='utf-8')
     #html_file=urllib.request.urlretrieve('clayss.html')
-    HtmlFile = open(imagen,'r' ,encoding='utf-8')
-    source_code = HtmlFile.read() 
+    url = imagen
+    webpage = requests.get(url)
+    soup = BeautifulSoup(webpage.content, "html.parser")
+    soup1=(soup.prettify())
 
-    components.html(source_code, width=1000, height=5500)
+
+    components.html(soup1, width=1000, height=5500)
     
     #st.write(news)
     
@@ -156,7 +159,7 @@ if display_code=='Enviar Boletín':
         message['To'] = to_email
   
 
-        part1 = MIMEText(source_code, 'html')
+        part1 = MIMEText(soup1, 'html')
   
 
         message.attach(part1)
