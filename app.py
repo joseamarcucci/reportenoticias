@@ -185,7 +185,7 @@ if display_code=='Enviar Boletín':
           from validate_email import validate_email
           is_valid = validate_email(email_address=to_email, check_format=True)
     
-          if is_valid==true:
+          if is_valid==True:
             server.sendmail(from_email, to_email, message.as_string())
             sheet2.append_row([hoy2,to_email,news, 'enviada'])
        
