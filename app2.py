@@ -52,7 +52,7 @@ st.markdown(
         .css-1l02zno {
     background-color: #fff;
     background-attachment: fixed;
-    border-right:2px solid #e65100;
+    border-right:2px solid rgb(255, 166, 0);
     flex-shrink: 0;
     height: 100vh;
     overflow: auto;
@@ -197,10 +197,10 @@ if display_code=='Enviar Boletín':
     
           if is_valid==True:
             server.send_message(msg)
-            sheet2.append_row([hoy2,to_email,news, 'enviada'])
+            sheet2.append_row([hoy2,a,to_email,news, 'enviada'])
        
           else:
-            sheet2.append_row([hoy2,to_email,news, 'No enviada; mal nombre en la cuenta'])
+            sheet2.append_row([hoy2,a,to_email,news, 'No enviada; mal nombre en la cuenta'])
       st.sidebar.write(news+' Enviada')
 if display_code == "No enviados":
   datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1v6hHLiNhviftzcyVP3x6RKYYsp16rNBXhFkARO1mg4k/export?format=csv&gid=70901914')
