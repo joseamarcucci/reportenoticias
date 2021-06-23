@@ -95,10 +95,10 @@ st.markdown(
 #st.sidebar.markdown("<h2 style='text-align: left; color: #00b8e1;'>Envio de Noticias</h2>", unsafe_allow_html=True)
 buff1,buff, col = st.beta_columns([1,2,2])
 # specify the correct name of the Google Sheet
-sheet = gclient.open('noticiasclayss').worksheet('datos')
+
 sheet2 = gclient.open('noticiasclayss').worksheet('envios')
 # Get all values in the Google Sheet
-row_values_list = sheet.get_all_records()
+
 
 # specify email and GMail App Password
 from_email = 'yzur76@gmail.com'
@@ -115,6 +115,15 @@ imagen=str(data.iloc[-1]['imagen'])
 news=str(data.iloc[-1]['newsletter'])
 # iterate on every row of the Google Sheet
 if display_code=='Enviar Boletín':
+    data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1v6hHLiNhviftzcyVP3x6RKYYsp16rNBXhFkARO1mg4k/export?format=csv&gid=716107712')
+    df0 = pd.DataFrame(data, columns=['nombre', 'base'])
+    df0=df0.sort_values(by=['nombre'],ascending=True)
+    values = df0['nombre'].tolist()
+    options = df0['base'].tolist()
+    dic = dict(zip(options, values))
+    a = st.sidebar.selectbox('Seleccionar base:', options, format_func=lambda x: dic[x])
+    sheet = gclient.open('noticiasclayss').worksheet(a)
+    row_values_list = sheet.get_all_records()
 
 
 # embed streamlit docs in a streamlit app
