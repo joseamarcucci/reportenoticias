@@ -2,6 +2,7 @@ import streamlit as st
 import smtplib
 import ssl
 import streamlit.components.v1 as components
+from bs4 import BeautifulSoup
 import datetime
 import requests
 from datetime import date
