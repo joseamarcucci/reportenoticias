@@ -48,7 +48,7 @@ st.markdown(
         .css-17eq0hr {
     background-color: #fff;
     background-attachment: fixed;
-    border-right:2px solid #008357;
+    border-right:2px solid #e65100;
     flex-shrink: 0;
     height: 100vh;
     overflow: auto;
@@ -87,7 +87,7 @@ st.markdown(
      .css-qbe2hs a{ text-decoration: none;}
       .st-bx {
     color: rgb(38, 39, 48);
-    border: 1px solid #dedede;
+    
 }
     </style>
 """, unsafe_allow_html=True) 
@@ -103,7 +103,7 @@ row_values_list = sheet.get_all_records()
 # specify email and GMail App Password
 from_email = 'yzur76@gmail.com'
 password = 'hocwnvbdeoenagtt'
-st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;background:#FFA600;" src="https://noticias.clayss.org/sites/default/files/logo.png" />', unsafe_allow_html=True)
+st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.clayss.org/sites/default/files/logo.png" />', unsafe_allow_html=True)
 display_code =   st.sidebar.radio("Mostrar", ( "Enviar Boletín","No enviados", "Enviados"))
 today = date.today()
 
