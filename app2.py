@@ -131,6 +131,7 @@ if display_code=='Enviar Boletín':
     webpage = requests.get(url)
     soup = BeautifulSoup(webpage.content, "html.parser")
     soup1=(soup.prettify())
+    r = requests.get(url)
 
 
     components.html(soup1, width=1000, height=5500)
@@ -163,7 +164,7 @@ if display_code=='Enviar Boletín':
         msg['From'] = 'jmarcucci@usal.edu.ar'
         msg['To'] = to_email
         #msg.set_content('And it actually works')
-        msg.set_content(soup1, subtype='html')
+        msg.set_content(r.text, subtype='html')
      
     
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
