@@ -174,7 +174,7 @@ if display_code=='Enviar Boletín':
         
         msg = EmailMessage()
         msg['Subject'] = news
-        msg['From'] = 'prensa@usal.edu.ar'
+        msg['From'] = 'info@clayss.org'
         msg['To'] = to_email
         #msg.set_content('And it actually works')
         msg.set_content(r.text, subtype='html')
