@@ -195,9 +195,9 @@ Web: <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><
         #message['Subject'] = news
         #message['From'] = from_email
         #message['To'] = to_email
-        name = row_value.get('name')
-        token = str(row_value.get('token'))
-        to_email = row_value.get('Email')
+     name = row_value.get('name')
+     token = str(row_value.get('token'))
+     to_email = row_value.get('Email')
 
         #part1 = MIMEText(html, 'html')
   
@@ -206,15 +206,15 @@ Web: <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><
   
 
         #context = ssl.create_default_context()
-        msg = EmailMessage()
-        msg['Subject'] = news
-        msg['From'] = 'info@clayss.org'
-        msg['To'] = to_email
+      msg = EmailMessage()
+      msg['Subject'] = news
+      msg['From'] = 'info@clayss.org'
+      msg['To'] = to_email
         #msg.set_content('And it actually works')
-        msg.set_content(r.text, subtype='html')
+      msg.set_content(r.text, subtype='html')
      
     
-        with smtplib.SMTP_SSL('mail.clayss.org', 465) as server:
+      with smtplib.SMTP_SSL('mail.clayss.org', 465) as server:
           server.login(from_email, password)
           from email_validator import validate_email, EmailNotValidError 
           try:
