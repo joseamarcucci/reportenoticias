@@ -178,43 +178,29 @@ Rodríguez Peña 752, C1023AAB, CABA; Argentina.<br>
 Tel. (+54-11) 6074-0522, ints. 2499 / 2444 / 2473<br>
 Web: <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><br><img alt="" width="800" src="https://noticias.usal.edu.ar/sites/default/files/2021-06/rectorado.jpg" /><br></body>
   </html>'''#.join(open('path/to/your/html').readlines())
-    url = imagen
-    webpage = requests.get(url)
-    soup = BeautifulSoup(webpage.content, "html.parser")
-    soup1=(soup.prettify())
-    r = requests.get(url)
 
-
-    components.html(soup1, width=1000, height=5500)
   # replace the variables with the values in the sheet
   #html = html.replace('${name}', name)
   #html = html.replace('${token}', token)
   
   # set up from, to and subject
-        #message = MIMEMultipart('alternative')
-        #message['Subject'] = news
-        #message['From'] = from_email
-        #message['To'] = to_email
-     name = row_value.get('name')
-     token = str(row_value.get('token'))
-     to_email = row_value.get('Email')
+        message = MIMEMultipart('alternative')
+        message['Subject'] = news
+        message['From'] = from_email
+        message['To'] = to_email
 
-        #part1 = MIMEText(html, 'html')
+
+        part1 = MIMEText(html, 'html')
   
 
-        #message.attach(part1)
+        message.attach(part1)
   
 
-        #context = ssl.create_default_context()
-      msg = EmailMessage()
-      msg['Subject'] = news
-      msg['From'] = 'info@clayss.org'
-      msg['To'] = to_email
-        #msg.set_content('And it actually works')
-      msg.set_content(r.text, subtype='html')
+        context = ssl.create_default_context()
+
      
     
-      with smtplib.SMTP_SSL('mail.clayss.org', 465) as server:
+        with smtplib.SMTP_SSL('mail.clayss.org', 465) as server:
           server.login(from_email, password)
           from email_validator import validate_email, EmailNotValidError 
           try:
