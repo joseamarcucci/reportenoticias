@@ -43,10 +43,14 @@ st.markdown(
     border: 2px solid rgb(246, 51, 102);
     border-radius: 3px;
 }
+.st-cx {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #dedede;
+}
         .css-1l02zno {
     background-color: #fff;
     background-attachment: fixed;
-    border-right:2px solid #008357;
+    border-right:2px solid rgb(255, 166, 0);
     flex-shrink: 0;
     height: 100vh;
     overflow: auto;
@@ -65,10 +69,6 @@ st.markdown(
     -webkit-box-align: center;
     align-items: center;
     }
-    .st-cm {
-    position: relative;
-    background-color: rgb(240, 242, 246);
-}
     .css-qbe2hs {
     display: inline-flex;
     -webkit-box-align: center;
@@ -92,9 +92,9 @@ st.markdown(
     
 }
     </style>
-""", unsafe_allow_html=True) 
+""", unsafe_allow_html=True)
 
-#st.sidebar.markdown("<h2 style='text-align: left; color: #00b8e1;'>Envio de Noticias</h2>", unsafe_allow_html=True)
+#st.sidebar.markdown("<h2 style='text-align: left; color: #00b8e1;'>Envio y Reporte Boletín</h2>", unsafe_allow_html=True)
 buff1,buff, col = st.beta_columns([2,2,2])
 # specify the correct name of the Google Sheet
 sheet = gclient.open('noticiasclayssf').worksheet('datos')
@@ -110,7 +110,7 @@ row_values_list = sheet.get_all_records()
 # specify email and GMail App Password
 from_email = 'pruebas@clayss.org'
 password = 'pruebas2021'
-st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.usal.edu.ar/sites/default/files/logon_1.jpg" />', unsafe_allow_html=True)
+st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.clayss.org/sites/default/files/logo.png" />', unsafe_allow_html=True)
 display_code =   st.sidebar.radio("Mostrar", ( "Enviar Newsletter","No enviados", "Enviados"))
 today = date.today()
 
@@ -259,7 +259,7 @@ if display_code == "No enviados":
   
   #AgGrid(dupli[['fecha','newsletter','destinatario','estado']])
   st.dataframe(dupli[['fecha','newsletter','base','destinatario','estado']])
-  df2=datanu.groupby(['base','estado'],as_index=False)['destinatario'].count()
+  df2=datan.groupby(['base','estado'],as_index=False)['destinatario'].count()
   df2.index = [""] * len(df2) 
   st.write(df2)
 
