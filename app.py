@@ -150,7 +150,7 @@ if display_code=='Enviar Boletín':
     soup = BeautifulSoup(webpage.content, "html.parser")
     soup1=(soup.prettify())
     r = requests.get(url)
-    st.write(soup1)
+    components.html(soup1, width=1000, height=5500)
     data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=91437221')
     df0 = pd.DataFrame(data, columns=['nombre', 'base'])
     df0=df0.sort_values(by=['nombre'],ascending=True)
