@@ -28,7 +28,7 @@ scopes = ["https://spreadsheets.google.com/feeds",
 cred = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", scopes)
 gclient = authorize(cred)
 st.set_page_config(
-page_title="Envio y Reporte Boletín Clayss"
+page_title="Envio y Reporte Boletín Clayss",
 page_icon="https://noticias.clayss.org/sites/default/files/favicon.ico.png",
 layout="wide",
 initial_sidebar_state="expanded",
