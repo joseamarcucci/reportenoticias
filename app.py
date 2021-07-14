@@ -2,6 +2,7 @@ import streamlit as st
 import altair as alt
 from altair import *
 import smtplib
+import streamlit.components.v1 as components
 import ssl
 import datetime 
 import requests
