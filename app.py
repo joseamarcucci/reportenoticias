@@ -97,8 +97,8 @@ st.markdown(
 #st.sidebar.markdown("<h2 style='text-align: left; color: #00b8e1;'>Envio de Noticias</h2>", unsafe_allow_html=True)
 buff1,buff, col = st.beta_columns([2,2,2])
 # specify the correct name of the Google Sheet
-#sheet = gclient.open('noticiasusal').worksheet('datos')
-sheet2 = gclient.open('noticiasclayss').worksheet('envios')
+sheet = gclient.open('noticiasclayssf').worksheet('datos')
+sheet2 = gclient.open('noticiasclayssf').worksheet('envios')
 
 
 #insert on the next available row
