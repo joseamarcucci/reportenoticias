@@ -28,7 +28,7 @@ scopes = ["https://spreadsheets.google.com/feeds",
 cred = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", scopes)
 gclient = authorize(cred)
 st.set_page_config(
-page_title="Envio de Noticias Usal",
+page_title="Envio y Reporte Boletín Clayss"
 page_icon="https://webinars.usal.edu.ar/sites/default/files/favicon.ico",
 layout="wide",
 initial_sidebar_state="expanded",
@@ -111,7 +111,7 @@ row_values_list = sheet.get_all_records()
 from_email = 'pruebas@clayss.org'
 password = 'pruebas2021'
 st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.clayss.org/sites/default/files/logo.png" />', unsafe_allow_html=True)
-display_code =   st.sidebar.radio("Mostrar", ( "Enviar Newsletter","No enviados", "Enviados"))
+display_code =   st.sidebar.radio("Mostrar", ( "Enviar Boletín","No enviados", "Enviados"))
 today = date.today()
 
 hoy2=today.strftime('%d-%m-%y')
@@ -127,7 +127,7 @@ options = data['imagen'].tolist()
 dic = dict(zip(options, values))
 
 if display_code == 'Enviar Newsletter':
-   a = buff1.selectbox('Seleccionar Newsletter:', options, format_func=lambda x: dic[x])
+   a = buff1.selectbox('Seleccionar Flyer:', options, format_func=lambda x: dic[x])
 
    news=data["newsletter"].loc[data["imagen"] == a].to_string(index = False)
    orden2=data["orden"].loc[data["imagen"] == a].to_string(index = False)
@@ -141,9 +141,9 @@ if display_code == 'Enviar Newsletter':
 
 
 # iterate on every row of the Google Sheet
-if display_code=='Enviar Newsletter':
+if display_code=='Enviar Boletín':
     #st.write(news)
-    st.markdown ('<!DOCTYPE html><html><body><a href="https://noticias.usal.edu.ar"><img  width="800" src="'+a+'" /></a></body></html>', unsafe_allow_html=True)
+    st.markdown ('<!DOCTYPE html><html><body><img  width="800" src="'+a+'" /></body></html>', unsafe_allow_html=True)
     data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=91437221')
     df0 = pd.DataFrame(data, columns=['nombre', 'base'])
     df0=df0.sort_values(by=['nombre'],ascending=True)
@@ -178,26 +178,40 @@ Rodríguez Peña 752, C1023AAB, CABA; Argentina.<br>
 Tel. (+54-11) 6074-0522, ints. 2499 / 2444 / 2473<br>
 Web: <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><br><img alt="" width="800" src="https://noticias.usal.edu.ar/sites/default/files/2021-06/rectorado.jpg" /><br></body>
   </html>'''#.join(open('path/to/your/html').readlines())
-  
+    url = imagen
+    webpage = requests.get(url)
+    soup = BeautifulSoup(webpage.content, "html.parser")
+    soup1=(soup.prettify())
+    r = requests.get(url)
+
+
+    components.html(soup1, width=1000, height=5500)
   # replace the variables with the values in the sheet
   #html = html.replace('${name}', name)
   #html = html.replace('${token}', token)
   
   # set up from, to and subject
-        message = MIMEMultipart('alternative')
-        message['Subject'] = news
-        message['From'] = from_email
-        message['To'] = to_email
+        #message = MIMEMultipart('alternative')
+        #message['Subject'] = news
+        #message['From'] = from_email
+        #message['To'] = to_email
+        name = row_value.get('name')
+        token = str(row_value.get('token'))
+        to_email = row_value.get('Email')
+
+        #part1 = MIMEText(html, 'html')
   
 
-        part1 = MIMEText(html, 'html')
+        #message.attach(part1)
   
 
-        message.attach(part1)
-  
-
-        context = ssl.create_default_context()
-  
+        #context = ssl.create_default_context()
+        msg = EmailMessage()
+        msg['Subject'] = news
+        msg['From'] = 'info@clayss.org'
+        msg['To'] = to_email
+        #msg.set_content('And it actually works')
+        msg.set_content(r.text, subtype='html')
      
     
         with smtplib.SMTP_SSL('mail.clayss.org', 465) as server:
