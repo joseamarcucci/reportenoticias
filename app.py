@@ -29,7 +29,7 @@ cred = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", 
 gclient = authorize(cred)
 st.set_page_config(
 page_title="Envio de Noticias Usal",
-page_icon="https://noticias.clayss.org/sites/default/files/favicon.ico.png",
+page_icon="https://webinars.usal.edu.ar/sites/default/files/favicon.ico",
 layout="wide",
 initial_sidebar_state="expanded",
 )
@@ -43,14 +43,10 @@ st.markdown(
     border: 2px solid rgb(246, 51, 102);
     border-radius: 3px;
 }
-.st-cx {
-    background-color: rgb(255, 255, 255);
-    border: 1px solid #dedede;
-}
         .css-1l02zno {
     background-color: #fff;
     background-attachment: fixed;
-    border-right:2px solid rgb(255, 166, 0);
+    border-right:2px solid #008357;
     flex-shrink: 0;
     height: 100vh;
     overflow: auto;
@@ -69,6 +65,10 @@ st.markdown(
     -webkit-box-align: center;
     align-items: center;
     }
+    .st-cm {
+    position: relative;
+    background-color: rgb(240, 242, 246);
+}
     .css-qbe2hs {
     display: inline-flex;
     -webkit-box-align: center;
@@ -110,13 +110,13 @@ row_values_list = sheet.get_all_records()
 # specify email and GMail App Password
 from_email = 'pruebas@clayss.org'
 password = 'pruebas2021'
-st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.clayss.org/sites/default/files/logo.png" />', unsafe_allow_html=True)
+st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.usal.edu.ar/sites/default/files/logon_1.jpg" />', unsafe_allow_html=True)
 display_code =   st.sidebar.radio("Mostrar", ( "Enviar Newsletter","No enviados", "Enviados"))
 today = date.today()
 
 hoy2=today.strftime('%d-%m-%y')
     #SHEET_ID = '12D4hfpuIkT7vM69buu-v-r-UYb8xx4wM1zi-34Fs9ck'
-data=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv')
+data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv')
 data=data.sort_values(by=['orden'],ascending=False)
 # Create the pandas DataFrame
 #df0 = pd.DataFrame(data, columns=['Webinar', 'Planilla'])
@@ -144,7 +144,7 @@ if display_code == 'Enviar Newsletter':
 if display_code=='Enviar Newsletter':
     #st.write(news)
     st.markdown ('<!DOCTYPE html><html><body><a href="https://noticias.usal.edu.ar"><img  width="800" src="'+a+'" /></a></body></html>', unsafe_allow_html=True)
-    data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=91437221')
+    data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=91437221')
     df0 = pd.DataFrame(data, columns=['nombre', 'base'])
     df0=df0.sort_values(by=['nombre'],ascending=True)
     values = df0['nombre'].tolist()
@@ -236,7 +236,7 @@ Web: <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><
       st.sidebar.write(news+' Enviada')
 if display_code == "No enviados":
   #buff1.markdown("<h5>Envio</h5>", unsafe_allow_html=True)
-  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=70901914')
+  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=70901914')
   #datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
   datan=datan.sort_values(by=['orden'],ascending=False)
   countries = datan['fecha'].unique()
@@ -278,7 +278,7 @@ if display_code == "No enviados":
   #dupli.index = [""] * len(dupli) 
   #st.table(dupli)
 if display_code == "Enviados":
-  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=70901914')
+  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=70901914')
   #datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
   datan=datan.sort_values(by=['orden'],ascending=False)
   #buff1.markdown("<h5>Envio</h5>", unsafe_allow_html=True)
