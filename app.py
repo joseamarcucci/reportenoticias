@@ -6,6 +6,7 @@ import ssl
 import datetime 
 import requests
 from datetime import date
+from bs4 import BeautifulSoup
 # these modules will allow you to create the client and interact
 # with Google Sheet
 import gspread
@@ -144,6 +145,12 @@ if display_code == 'Enviar Boletín':
 if display_code=='Enviar Boletín':
     #st.write(news)
     st.markdown ('<!DOCTYPE html><html><body><img  width="800" src="'+a+'" /></body></html>', unsafe_allow_html=True)
+    url = imagen
+    webpage = requests.get(url)
+    soup = BeautifulSoup(webpage.content, "html.parser")
+    soup1=(soup.prettify())
+    r = requests.get(url)
+    st.write(soup1)
     data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=91437221')
     df0 = pd.DataFrame(data, columns=['nombre', 'base'])
     df0=df0.sort_values(by=['nombre'],ascending=True)
