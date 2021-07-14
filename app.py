@@ -29,7 +29,7 @@ cred = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", 
 gclient = authorize(cred)
 st.set_page_config(
 page_title="Envio y Reporte Boletín Clayss"
-page_icon="https://webinars.usal.edu.ar/sites/default/files/favicon.ico",
+page_icon="https://noticias.clayss.org/sites/default/files/favicon.ico.png",
 layout="wide",
 initial_sidebar_state="expanded",
 )
@@ -126,7 +126,7 @@ options = data['imagen'].tolist()
 
 dic = dict(zip(options, values))
 
-if display_code == 'Enviar Newsletter':
+if display_code == 'Enviar Boletín':
    a = buff1.selectbox('Seleccionar Flyer:', options, format_func=lambda x: dic[x])
 
    news=data["newsletter"].loc[data["imagen"] == a].to_string(index = False)
