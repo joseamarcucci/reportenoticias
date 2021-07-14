@@ -1,9 +1,9 @@
 import streamlit as st
+import altair as alt
+from altair import *
 import smtplib
 import ssl
-import streamlit.components.v1 as components
-from bs4 import BeautifulSoup
-import datetime
+import datetime 
 import requests
 from datetime import date
 # these modules will allow you to create the client and interact
@@ -28,7 +28,7 @@ scopes = ["https://spreadsheets.google.com/feeds",
 cred = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", scopes)
 gclient = authorize(cred)
 st.set_page_config(
-page_title="Envio de Boletín Clayss",
+page_title="Envio de Noticias Usal",
 page_icon="https://noticias.clayss.org/sites/default/files/favicon.ico.png",
 layout="wide",
 initial_sidebar_state="expanded",
@@ -43,10 +43,14 @@ st.markdown(
     border: 2px solid rgb(246, 51, 102);
     border-radius: 3px;
 }
+.st-cx {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #dedede;
+}
         .css-1l02zno {
     background-color: #fff;
     background-attachment: fixed;
-    border-right:2px solid #008357;
+    border-right:2px solid rgb(255, 166, 0);
     flex-shrink: 0;
     height: 100vh;
     overflow: auto;
@@ -85,54 +89,69 @@ st.markdown(
      .css-qbe2hs a{ text-decoration: none;}
       .st-bx {
     color: rgb(38, 39, 48);
- 
+    
 }
     </style>
 """, unsafe_allow_html=True) 
 
 #st.sidebar.markdown("<h2 style='text-align: left; color: #00b8e1;'>Envio de Noticias</h2>", unsafe_allow_html=True)
-buff1,buff, col = st.beta_columns([1,2,2])
+buff1,buff, col = st.beta_columns([2,2,2])
 # specify the correct name of the Google Sheet
-sheet = gclient.open('noticiasclayss').worksheet('datos')
+#sheet = gclient.open('noticiasusal').worksheet('datos')
 sheet2 = gclient.open('noticiasclayss').worksheet('envios')
+
+
+#insert on the next available row
+#st.write(next_row)
+#sheet2.update_acell("A{}".format(next_row), v+1)
 # Get all values in the Google Sheet
 row_values_list = sheet.get_all_records()
 
 # specify email and GMail App Password
-from_email = 'yzur76@gmail.com'
-password = 'hocwnvbdeoenagtt'
-st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;background:#FFA600;" src="https://noticias.clayss.org/sites/default/files/logo_blanco2.png" />', unsafe_allow_html=True)
-display_code =   st.sidebar.radio("Mostrar", ( "Enviar Boletín","No enviados", "Enviados"))
+from_email = 'pruebas@clayss.org'
+password = 'pruebas2021'
+st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.clayss.org/sites/default/files/logo.png" />', unsafe_allow_html=True)
+display_code =   st.sidebar.radio("Mostrar", ( "Enviar Newsletter","No enviados", "Enviados"))
 today = date.today()
 
 hoy2=today.strftime('%d-%m-%y')
     #SHEET_ID = '12D4hfpuIkT7vM69buu-v-r-UYb8xx4wM1zi-34Fs9ck'
-data=pd.read_csv('https://docs.google.com/spreadsheets/d/1v6hHLiNhviftzcyVP3x6RKYYsp16rNBXhFkARO1mg4k/export?format=csv')
-#data=data.sort_values(by=['orden'],ascending=False)
-imagen=str(data.iloc[-1]['imagen'])
-news=str(data.iloc[-1]['newsletter'])
+data=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv')
+data=data.sort_values(by=['orden'],ascending=False)
+# Create the pandas DataFrame
+#df0 = pd.DataFrame(data, columns=['Webinar', 'Planilla'])
+
+values = data['newsletter'].tolist()
+options = data['imagen'].tolist()
+
+dic = dict(zip(options, values))
+
+if display_code == 'Enviar Newsletter':
+   a = buff1.selectbox('Seleccionar Newsletter:', options, format_func=lambda x: dic[x])
+
+   news=data["newsletter"].loc[data["imagen"] == a].to_string(index = False)
+   orden2=data["orden"].loc[data["imagen"] == a].to_string(index = False)
+
+
+
+#reunion = data['newsletter'] ==a
+#data=data.sort_values(by=['orden'],ascending=True)
+   imagen=str(data.iloc[-1]['imagen'])
+   news0=str(data.iloc[-1]['newsletter'])
+
+
 # iterate on every row of the Google Sheet
-if display_code=='Enviar Boletín':
-
-
-# embed streamlit docs in a streamlit app
-    #components.iframe("https://noticias.clayss.org/mails/clayss.html")
-    #html_string = 'https://noticias.clayss.org/mails/clayss.html' # load your HTML from disk here
-    #st.markdown (html_string, unsafe_allow_html=True)
-    #components.html("https://noticias.clayss.org/mails/clayss.html", width=200, height=200)
-    #components.iframe("https://noticias.clayss.org/mails/clayss.html", width=800, height=900,, encoding='utf-8')
-    #html_file=urllib.request.urlretrieve('clayss.html')
-    url = imagen
-    webpage = requests.get(url)
-    soup = BeautifulSoup(webpage.content, "html.parser")
-    soup1=(soup.prettify())
-
-
-    components.html(soup1, width=1000, height=5500)
-    
+if display_code=='Enviar Newsletter':
     #st.write(news)
-    
-    #st.markdown (html_file, unsafe_allow_html=True)
+    st.markdown ('<!DOCTYPE html><html><body><a href="https://noticias.usal.edu.ar"><img  width="800" src="'+a+'" /></a></body></html>', unsafe_allow_html=True)
+    data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=91437221')
+    df0 = pd.DataFrame(data, columns=['nombre', 'base'])
+    df0=df0.sort_values(by=['nombre'],ascending=True)
+    values = df0['nombre'].tolist()
+    options = df0['base'].tolist()
+    dic = dict(zip(options, values))
+    a = st.sidebar.selectbox('Seleccionar base:', options, format_func=lambda x: dic[x])
+    sheet = gclient.open('noticiasusal').worksheet(a)
     if st.sidebar.button('Enviar'):
       for row_value in row_values_list:
 
@@ -143,11 +162,22 @@ if display_code=='Enviar Boletín':
 
 
   # specify the path to your html email
-        html = '''
-
-
-
-'''
+        html = '''<!DOCTYPE html>
+<html>
+    <body>Estimada Comunidad,<br>
+Les hacemos llegar la publicación<b> '''+news+'''</b>, del Año Lectivo 2021, haciendo click en la imagen o ingresando al portal <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><br><br> 
+      
+      
+                <a href="https://noticias.usal.edu.ar"><img alt="" width="800" src="'''+imagen+'''" /></a><br>
+               
+Saludos<br>
+Secretaría de Prensa<br>
+Universidad del Salvador<br>
+<b><i>“2021, año de San José: Padre, enséñanos a caminar en la Fe”</i></b><br>
+Rodríguez Peña 752, C1023AAB, CABA; Argentina.<br>
+Tel. (+54-11) 6074-0522, ints. 2499 / 2444 / 2473<br>
+Web: <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><br><img alt="" width="800" src="https://noticias.usal.edu.ar/sites/default/files/2021-06/rectorado.jpg" /><br></body>
+  </html>'''#.join(open('path/to/your/html').readlines())
   
   # replace the variables with the values in the sheet
   #html = html.replace('${name}', name)
@@ -160,7 +190,7 @@ if display_code=='Enviar Boletín':
         message['To'] = to_email
   
 
-        part1 = MIMEText(soup1, 'html')
+        part1 = MIMEText(html, 'html')
   
 
         message.attach(part1)
@@ -170,7 +200,7 @@ if display_code=='Enviar Boletín':
   
      
     
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
+        with smtplib.SMTP_SSL('mail.clayss.org', 465) as server:
           server.login(from_email, password)
           from email_validator import validate_email, EmailNotValidError 
           try:
@@ -179,32 +209,68 @@ if display_code=='Enviar Boletín':
 
 
           except EmailNotValidError as e:
+            
+            str_list = list(filter(None, sheet2.col_values(1)))
+    
+            next_row = sheet2.cell(str(len(str_list)), 1).value 
 
-            sheet2.append_row([hoy2,to_email,news, 'No enviada; mal nombre de dominio'])
+            sheet2.append_row([int(next_row)+1,hoy2,a,to_email,news, 'No enviada; mal nombre de dominio'])
             continue
           from validate_email import validate_email
           is_valid = validate_email(email_address=to_email, check_format=True)
+          
+          if is_valid==True or is_valid==None:
+                        
+            str_list = list(filter(None, sheet2.col_values(1)))
     
-          if is_valid==True:
+            next_row = sheet2.cell(str(len(str_list)), 1).value 
             server.sendmail(from_email, to_email, message.as_string())
-            sheet2.append_row([hoy2,to_email,news, 'enviada'])
+            sheet2.append_row([int(next_row)+1, hoy2,a,to_email,news, 'enviada'])
        
           else:
-            sheet2.append_row([hoy2,to_email,news, 'No enviada; mal nombre en la cuenta'])
+                        
+            str_list = list(filter(None, sheet2.col_values(1)))
+    
+            next_row = sheet2.cell(str(len(str_list)), 1).value 
+            sheet2.append_row([int(next_row)+1,hoy2,a,to_email,news, 'No enviada; mal nombre en la cuenta'])
       st.sidebar.write(news+' Enviada')
 if display_code == "No enviados":
-  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1v6hHLiNhviftzcyVP3x6RKYYsp16rNBXhFkARO1mg4k/export?format=csv&gid=70901914')
-  datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
-  datan=datan.sort_values(by=['fecha'],ascending=False)
+  #buff1.markdown("<h5>Envio</h5>", unsafe_allow_html=True)
+  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=70901914')
+  #datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
+  datan=datan.sort_values(by=['orden'],ascending=False)
   countries = datan['fecha'].unique()
-  country = buff1.selectbox('Fecha:', countries)
+  country = buff1.selectbox('Envio Viernes:', countries)
   options = ['enviada'] 
   datan = datan.loc[~datan['estado'].isin(options)]
-  datan.index = [""] * len(datan) 
+
+  datan.index = [""] * len(datan)
   datanu=datan['fecha'] == country
+  #newdf = datan[(datan.fecha == countries)]
+  #st.write(datan.filter(items=['orden2']))
+  #datanu=datan['orden2'] == orden2  
+
+
   dupli=datan[datanu].drop_duplicates(subset = ['destinatario'])
+  #dupli['fecha52'] = pd.to_datetime(dupli['fecha']).dt.strftime('%d/%m/%y')
   #st.markdown(datan.index.tolist())
-  st.dataframe(dupli)
+  #st.dataframe(dupli)
+  #ag_grid(dupli[['Fecha','Destinatario','Newsletter', 'Estado']])
+  
+  #AgGrid(dupli[['fecha','newsletter','destinatario','estado']])
+  st.dataframe(dupli[['fecha','newsletter','base','destinatario','estado']])
+  df2=datanu.groupby(['base','estado'],as_index=False)['destinatario'].count()
+  df2.index = [""] * len(df2) 
+  st.write(df2)
+
+  chart = Chart(df2).mark_bar().encode(
+  x=alt.X('estado:N', axis=None),
+  y='destinatario:Q',
+  color='estado:N',
+  column='base:N'
+  ).properties(width=80)
+
+  st.write(chart)
   df5=pd.value_counts(dupli['destinatario']) 
   times3t=df5.index
   aulast=len(times3t) 
@@ -212,20 +278,36 @@ if display_code == "No enviados":
   #dupli.index = [""] * len(dupli) 
   #st.table(dupli)
 if display_code == "Enviados":
-  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1v6hHLiNhviftzcyVP3x6RKYYsp16rNBXhFkARO1mg4k/export?format=csv&gid=70901914')
-  datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
-  datan=datan.sort_values(by=['fecha'],ascending=False)
+  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=70901914')
+  #datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
+  datan=datan.sort_values(by=['orden'],ascending=False)
+  #buff1.markdown("<h5>Envio</h5>", unsafe_allow_html=True)
   countries = datan['fecha'].unique()
-  country = buff1.selectbox('Fecha:', countries)
+  country = buff1.selectbox('Envio Viernes:', countries)
   options = ['No enviada; mal nombre de dominio','No enviada; mal nombre en la cuenta'] 
   # selecting rows based on condition 
   datan = datan.loc[~datan['estado'].isin(options)]
+  datan.index = [""] * len(datan)
   datanu=datan['fecha'] == country
   dupli=datan[datanu].drop_duplicates(subset = ['destinatario'])
-  dupli.index = [""] * len(dupli) 
+  #dupli['fecha52'] = pd.to_datetime(dupli['fecha']).dt.strftime('%d/%m/%y')
+  #dupli.index = [""] * len(dupli) 
   #st.markdown(datan.index.tolist())
-  st.dataframe(dupli)
+  #st.dataframe(dupli)
+  #st.table(dupli[['fecha','newsletter','destinatario','estado']])
+  st.dataframe(dupli[['fecha','newsletter','base','destinatario','estado']])
+  df2=datan.groupby(['base','estado'],as_index=False)['destinatario'].count()
+  df2.index = [""] * len(df2) 
+  st.write(df2)
+  chart = Chart(df2).mark_bar().encode(
+    x=alt.X('estado:N', axis=None),
+    y='destinatario:Q',
+    color='estado:N',
+    column='base:N'
+  ).properties(width=80)
+
+  st.write(chart)
   df5=pd.value_counts(dupli['destinatario']) 
-  times3t=df5.index
+  times3t=df5.index 
   aulast=len(times3t) 
   st.sidebar.write('No enviados:',aulast) 
