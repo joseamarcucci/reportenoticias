@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run appok.py
+web: sh setup.sh && streamlit run appusal.py
