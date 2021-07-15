@@ -29,7 +29,7 @@ cred = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", 
 gclient = authorize(cred)
 st.set_page_config(
 page_title="Envio de Noticias Usal",
-page_icon="https://webinars.usal.edu.ar/sites/default/files/favicon.ico",
+page_icon="https://noticias.clayss.org/sites/default/files/favicon.ico.png",
 layout="wide",
 initial_sidebar_state="expanded",
 )
@@ -43,14 +43,14 @@ st.markdown(
     border: 2px solid rgb(246, 51, 102);
     border-radius: 3px;
 }
-    .st-cm {
-    position: relative;
-    background-color: rgb(240, 242, 246);
+.st-cx {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #dedede;
 }
         .css-1l02zno {
     background-color: #fff;
     background-attachment: fixed;
-    border-right:2px solid #008357;
+    border-right:2px solid rgb(255, 166, 0);
     flex-shrink: 0;
     height: 100vh;
     overflow: auto;
@@ -97,8 +97,8 @@ st.markdown(
 #st.sidebar.markdown("<h2 style='text-align: left; color: #00b8e1;'>Envio de Noticias</h2>", unsafe_allow_html=True)
 buff1,buff, col = st.beta_columns([2,2,2])
 # specify the correct name of the Google Sheet
-sheet = gclient.open('noticiasusal').worksheet('datos')
-sheet2 = gclient.open('noticiasusal').worksheet('envios')
+sheet = gclient.open('noticiasclayssf').worksheet('datos')
+sheet2 = gclient.open('noticiasclayssf').worksheet('envios')
 
 
 #insert on the next available row
@@ -110,7 +110,7 @@ row_values_list = sheet.get_all_records()
 # specify email and GMail App Password
 from_email = 'pruebas@clayss.org'
 password = 'pruebas2021'
-st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.usal.edu.ar/sites/default/files/logon_1.jpg" />', unsafe_allow_html=True)
+st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.clayss.org/sites/default/files/logo.png" />', unsafe_allow_html=True)
 display_code =   st.sidebar.radio("Mostrar", ( "Enviar Newsletter","No enviados", "Enviados"))
 today = date.today()
 
@@ -151,7 +151,7 @@ if display_code=='Enviar Newsletter':
     options = df0['base'].tolist()
     dic = dict(zip(options, values))
     a = st.sidebar.selectbox('Seleccionar base:', options, format_func=lambda x: dic[x])
-    sheet = gclient.open('noticiasusal').worksheet(a)
+    sheet = gclient.open('noticiasclaussf').worksheet(a)
     if st.sidebar.button('Enviar'):
       for row_value in row_values_list:
 
