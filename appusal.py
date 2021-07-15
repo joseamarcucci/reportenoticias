@@ -214,7 +214,7 @@ Web: <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><
     
             next_row = sheet2.cell(str(len(str_list)), 1).value 
 
-            sheet2.append_row([int(next_row)+1,hoy2,a,to_email,news, 'No enviada; mal nombre de dominio'])
+            sheet2.append_row([hoy2,a,to_email,news, 'No enviada; mal nombre de dominio'])
             continue
           from validate_email import validate_email
           is_valid = validate_email(email_address=to_email, check_format=True)
@@ -225,14 +225,14 @@ Web: <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><
     
             next_row = sheet2.cell(str(len(str_list)), 1).value 
             server.sendmail(from_email, to_email, message.as_string())
-            sheet2.append_row([int(next_row)+1, hoy2,a,to_email,news, 'enviada'])
+            sheet2.append_row([ hoy2,a,to_email,news, 'enviada'])
        
           else:
                         
             str_list = list(filter(None, sheet2.col_values(1)))
     
             next_row = sheet2.cell(str(len(str_list)), 1).value 
-            sheet2.append_row([int(next_row)+1,hoy2,a,to_email,news, 'No enviada; mal nombre en la cuenta'])
+            sheet2.append_row([hoy2,a,to_email,news, 'No enviada; mal nombre en la cuenta'])
       st.sidebar.write(news+' Enviada')
 if display_code == "No enviados":
   #buff1.markdown("<h5>Envio</h5>", unsafe_allow_html=True)
