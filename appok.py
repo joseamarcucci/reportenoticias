@@ -107,7 +107,7 @@ sheet2 = gclient.open('noticiasclayssf').worksheet('envios')
 
 
 # specify email and GMail App Password
-from_email = 'pruebas@clayss.org'
+from_email = 'pruebas21@clayss.org'
 password = 'pruebas2021'
 st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.clayss.org/sites/default/files/logo.png" />', unsafe_allow_html=True)
 display_code =   st.sidebar.radio("Mostrar", ( "Enviar Boletín","No enviados", "Enviados"))
