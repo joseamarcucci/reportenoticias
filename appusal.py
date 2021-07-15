@@ -143,7 +143,7 @@ if display_code == 'Enviar Newsletter':
 # iterate on every row of the Google Sheet
 if display_code=='Enviar Newsletter':
     #st.write(news)
-    st.markdown ('<!DOCTYPE html><html><body><a href="https://noticias.usal.edu.ar"><img  width="800" src="'+a+'" /></a></body></html>', unsafe_allow_html=True)
+    st.markdown ('<!DOCTYPE html><html><body><img  width="800" src="'+a+'" /></body></html>', unsafe_allow_html=True)
     data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=91437221')
     df0 = pd.DataFrame(data, columns=['nombre', 'base'])
     df0=df0.sort_values(by=['nombre'],ascending=True)
@@ -164,19 +164,14 @@ if display_code=='Enviar Newsletter':
   # specify the path to your html email
         html = '''<!DOCTYPE html>
 <html>
-    <body>Estimada Comunidad,<br>
-Les hacemos llegar la publicación<b> '''+news+'''</b>, del Año Lectivo 2021, haciendo click en la imagen o ingresando al portal <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><br><br> 
+    <body>
+     <b> '''+news+'''-Acompañamiento Virtual a Instituciones</b>, del Año Lectivo 2021, haciendo click en la imagen o ingresando al portal <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><br><br> 
       
       
                 <a href="https://noticias.usal.edu.ar"><img alt="" width="800" src="'''+imagen+'''" /></a><br>
                
 Saludos<br>
-Secretaría de Prensa<br>
-Universidad del Salvador<br>
-<b><i>“2021, año de San José: Padre, enséñanos a caminar en la Fe”</i></b><br>
-Rodríguez Peña 752, C1023AAB, CABA; Argentina.<br>
-Tel. (+54-11) 6074-0522, ints. 2499 / 2444 / 2473<br>
-Web: <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><br><img alt="" width="800" src="https://noticias.usal.edu.ar/sites/default/files/2021-06/rectorado.jpg" /><br></body>
+<br></body>
   </html>'''#.join(open('path/to/your/html').readlines())
   
   # replace the variables with the values in the sheet
