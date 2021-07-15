@@ -215,9 +215,7 @@ if display_code=='Enviar boletín':
 
           except EmailNotValidError as e:
             
-            str_list = list(filter(None, sheet2.col_values(1)))
-    
-            next_row = sheet2.cell(str(len(str_list)), 1).value 
+
 
             sheet2.append_row([hoy2,a,to_email,news, 'No enviada; mal nombre de dominio'])
             continue
@@ -226,9 +224,7 @@ if display_code=='Enviar boletín':
           
           if is_valid==True or is_valid==None:
                         
-            str_list = list(filter(None, sheet2.col_values(1)))
-    
-            next_row = sheet2.cell(str(len(str_list)), 1).value 
+
             server.sendmail(from_email, to_email, message.as_string())
             sheet2.append_row([ hoy2,a,to_email,news, 'enviada'])
        
