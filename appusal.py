@@ -28,8 +28,8 @@ scopes = ["https://spreadsheets.google.com/feeds",
 cred = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", scopes)
 gclient = authorize(cred)
 st.set_page_config(
-page_title="Envio de Boletín Clayss",
-page_icon="https://noticias.clayss.org/sites/default/files/favicon.ico.png",
+page_title="Envio de Noticias Usal",
+page_icon="https://webinars.usal.edu.ar/sites/default/files/favicon.ico",
 layout="wide",
 initial_sidebar_state="expanded",
 )
@@ -43,14 +43,14 @@ st.markdown(
     border: 2px solid rgb(246, 51, 102);
     border-radius: 3px;
 }
-.st-cx {
-    background-color: rgb(255, 255, 255);
-    border: 1px solid #dedede;
+    .st-cm {
+    position: relative;
+    background-color: rgb(240, 242, 246);
 }
         .css-1l02zno {
     background-color: #fff;
     background-attachment: fixed;
-    border-right:2px solid rgb(255, 166, 0);
+    border-right:2px solid #008357;
     flex-shrink: 0;
     height: 100vh;
     overflow: auto;
@@ -97,8 +97,8 @@ st.markdown(
 #st.sidebar.markdown("<h2 style='text-align: left; color: #00b8e1;'>Envio de Noticias</h2>", unsafe_allow_html=True)
 buff1,buff, col = st.beta_columns([2,2,2])
 # specify the correct name of the Google Sheet
-sheet = gclient.open('noticiasclayssf').worksheet('datos')
-sheet2 = gclient.open('noticiasclayssf').worksheet('envios')
+sheet = gclient.open('noticiasusal').worksheet('datos')
+sheet2 = gclient.open('noticiasusal').worksheet('envios')
 
 
 #insert on the next available row
@@ -110,13 +110,13 @@ row_values_list = sheet.get_all_records()
 # specify email and GMail App Password
 from_email = 'pruebas@clayss.org'
 password = 'pruebas2021'
-st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.clayss.org/sites/default/files/logo.png" />', unsafe_allow_html=True)
-display_code =   st.sidebar.radio("Mostrar", ( "Enviar boletín","No enviados", "Enviados"))
+st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.usal.edu.ar/sites/default/files/logon_1.jpg" />', unsafe_allow_html=True)
+display_code =   st.sidebar.radio("Mostrar", ( "Enviar Newsletter","No enviados", "Enviados"))
 today = date.today()
 
 hoy2=today.strftime('%d-%m-%y')
     #SHEET_ID = '12D4hfpuIkT7vM69buu-v-r-UYb8xx4wM1zi-34Fs9ck'
-data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv')
+data=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv')
 data=data.sort_values(by=['orden'],ascending=False)
 # Create the pandas DataFrame
 #df0 = pd.DataFrame(data, columns=['Webinar', 'Planilla'])
@@ -126,8 +126,8 @@ options = data['imagen'].tolist()
 
 dic = dict(zip(options, values))
 
-if display_code == 'Enviar boletín':
-   a = buff1.selectbox('Seleccionar boletín:', options, format_func=lambda x: dic[x])
+if display_code == 'Enviar Newsletter':
+   a = buff1.selectbox('Seleccionar Newsletter:', options, format_func=lambda x: dic[x])
 
    news=data["newsletter"].loc[data["imagen"] == a].to_string(index = False)
    orden2=data["orden"].loc[data["imagen"] == a].to_string(index = False)
@@ -141,17 +141,17 @@ if display_code == 'Enviar boletín':
 
 
 # iterate on every row of the Google Sheet
-if display_code=='Enviar boletín':
+if display_code=='Enviar Newsletter':
     #st.write(news)
     st.markdown ('<!DOCTYPE html><html><body><a href="https://noticias.usal.edu.ar"><img  width="800" src="'+a+'" /></a></body></html>', unsafe_allow_html=True)
-    data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=91437221')
+    data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=91437221')
     df0 = pd.DataFrame(data, columns=['nombre', 'base'])
     df0=df0.sort_values(by=['nombre'],ascending=True)
     values = df0['nombre'].tolist()
     options = df0['base'].tolist()
     dic = dict(zip(options, values))
     a = st.sidebar.selectbox('Seleccionar base:', options, format_func=lambda x: dic[x])
-    sheet = gclient.open('noticiasclayssf').worksheet(a)
+    sheet = gclient.open('noticiasusal').worksheet(a)
     if st.sidebar.button('Enviar'):
       for row_value in row_values_list:
 
@@ -164,25 +164,20 @@ if display_code=='Enviar boletín':
   # specify the path to your html email
         html = '''<!DOCTYPE html>
 <html>
-    <body>
-<b> '''+news+'''-Acompañamiento Virtual a Instituciones</b><br><br> <table cellpadding="0" cellspacing="0" border="0" width="100%" >
-<tbody><tr>
-
-<td align="left" style="padding: 20px" valign="top"><div style="font-family: 'Google sans', Verdana; font-size: 14px; color: #2c3850;  line-height: 22px; padding: 0; margin: 0; text-align: left">
-        <div>
-          <p>Desde el Programa de apoyo a instituciones educativas solidarias &quot;Aprendizaje-Servicio Solidario en las Artes&quot;, CLAYSS convoca a instituciones de todos los niveles y modalidades de <b>Argentina, Brasil, Colombia y Perú</b> a participar del &quot;Acompañamiento Virtual a Instituciones (AVI) 2021&quot;. </p><br>
-          <p>Desde el 22 de junio al 30 de julio de 2021 está abierta la convocatoria para participar del <b>AVI2021</b>. Pueden participar completando el formulario que se encuentra en <a href="https://www.tfaforms.com/4913545" target="_blank">https://www.tfaforms.com/4913545</a>. </p><br>
-          <p>Bases y condiciones: https://bit.ly/3vSJMM7
-            
-            Para más información sobre el Programa &quot;AYSS en las Artes&quot;: <a href="https://programas.artes.clayss.org/es/bienvenidos_arte" target="_blank">https://programas.artes.clayss.org/es/bienvenidos_arte</a></p><br>
-        </div>
-      </div><br><a href="https://www.tfaforms.com/4913545" target="_blank"><img src="https://noticias.clayss.org/mails/convocatoria2021.jpg" style="width: 100%; text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; display: block" /></a></td>
-</tr>
-</tbody></table>
+    <body>Estimada Comunidad,<br>
+Les hacemos llegar la publicación<b> '''+news+'''</b>, del Año Lectivo 2021, haciendo click en la imagen o ingresando al portal <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><br><br> 
       
-      </body>
-            </html>'''#.join(open('path/to/your/html').readlines())
-  
+      
+                <a href="https://noticias.usal.edu.ar"><img alt="" width="800" src="'''+imagen+'''" /></a><br>
+               
+Saludos<br>
+Secretaría de Prensa<br>
+Universidad del Salvador<br>
+<b><i>“2021, año de San José: Padre, enséñanos a caminar en la Fe”</i></b><br>
+Rodríguez Peña 752, C1023AAB, CABA; Argentina.<br>
+Tel. (+54-11) 6074-0522, ints. 2499 / 2444 / 2473<br>
+Web: <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><br><img alt="" width="800" src="https://noticias.usal.edu.ar/sites/default/files/2021-06/rectorado.jpg" /><br></body>
+  </html>'''#.join(open('path/to/your/html').readlines())
   
   # replace the variables with the values in the sheet
   #html = html.replace('${name}', name)
@@ -215,29 +210,33 @@ if display_code=='Enviar boletín':
 
           except EmailNotValidError as e:
             
+            str_list = list(filter(None, sheet2.col_values(1)))
+    
+            next_row = sheet2.cell(str(len(str_list)), 1).value 
 
-
-            sheet2.append_row([hoy2,a,to_email,news, 'No enviada; mal nombre de dominio'])
+            sheet2.append_row([int(next_row)+1,hoy2,a,to_email,news, 'No enviada; mal nombre de dominio'])
             continue
           from validate_email import validate_email
           is_valid = validate_email(email_address=to_email, check_format=True)
           
           if is_valid==True or is_valid==None:
                         
-
+            str_list = list(filter(None, sheet2.col_values(1)))
+    
+            next_row = sheet2.cell(str(len(str_list)), 1).value 
             server.sendmail(from_email, to_email, message.as_string())
-            sheet2.append_row([ hoy2,a,to_email,news, 'enviada'])
+            sheet2.append_row([int(next_row)+1, hoy2,a,to_email,news, 'enviada'])
        
           else:
                         
             str_list = list(filter(None, sheet2.col_values(1)))
     
             next_row = sheet2.cell(str(len(str_list)), 1).value 
-            sheet2.append_row([hoy2,a,to_email,news, 'No enviada; mal nombre en la cuenta'])
+            sheet2.append_row([int(next_row)+1,hoy2,a,to_email,news, 'No enviada; mal nombre en la cuenta'])
       st.sidebar.write(news+' Enviada')
 if display_code == "No enviados":
   #buff1.markdown("<h5>Envio</h5>", unsafe_allow_html=True)
-  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=70901914')
+  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=70901914')
   #datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
   datan=datan.sort_values(by=['orden'],ascending=False)
   countries = datan['fecha'].unique()
@@ -268,7 +267,7 @@ if display_code == "No enviados":
   #dupli.index = [""] * len(dupli) 
   #st.table(dupli)
 if display_code == "Enviados":
-  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=70901914')
+  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=70901914')
   #datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
   datan=datan.sort_values(by=['orden'],ascending=False)
   #buff1.markdown("<h5>Envio</h5>", unsafe_allow_html=True)
