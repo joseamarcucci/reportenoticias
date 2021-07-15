@@ -165,13 +165,15 @@ if display_code=='Enviar Newsletter':
         html = '''<!DOCTYPE html>
 <html>
     <body>
-     <b> '''+news+'''-Acompañamiento Virtual a Instituciones</b>, del Año Lectivo 2021, haciendo click en la imagen o ingresando al portal <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><br><br> 
+     <b> '''+news+'''-Acompañamiento Virtual a Instituciones</b>,   <p>Desde el Programa de apoyo a instituciones educativas solidarias &quot;Aprendizaje-Servicio Solidario en las Artes&quot;, CLAYSS convoca a instituciones de todos los niveles y modalidades de <b>Argentina, Brasil, Colombia y Perú</b> a participar del &quot;Acompañamiento Virtual a Instituciones (AVI) 2021&quot;. </p><br>
+          <p>Desde el 22 de junio al 30 de julio de 2021 está abierta la convocatoria para participar del <b>AVI2021</b>. Pueden participar completando el formulario que se encuentra en <a href="https://www.tfaforms.com/4913545" target="_blank">https://www.tfaforms.com/4913545</a>. </p><br>
+          <p>Bases y condiciones: https://bit.ly/3vSJMM7
+            
+            Para más información sobre el Programa &quot;AYSS en las Artes&quot;: <a href="https://programas.artes.clayss.org/es/bienvenidos_arte" target="_blank">https://programas.artes.clayss.org/es/bienvenidos_arte</a></p><br>
+        </div>
+      </div><br><a href="https://www.tfaforms.com/4913545" target="_blank"><img src="https://noticias.clayss.org/mails/convocatoria2021.jpg" style="width: 100%; text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; display: block" /></a>https://noticias.usal.edu.ar/es</a><br><br> 
       
-      
-                <a href="https://noticias.usal.edu.ar"><img alt="" width="800" src="'''+imagen+'''" /></a><br>
-               
-Saludos<br>
-<br></body>
+</body>
   </html>'''#.join(open('path/to/your/html').readlines())
   
   # replace the variables with the values in the sheet
