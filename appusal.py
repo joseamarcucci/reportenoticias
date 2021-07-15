@@ -28,7 +28,7 @@ scopes = ["https://spreadsheets.google.com/feeds",
 cred = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", scopes)
 gclient = authorize(cred)
 st.set_page_config(
-page_title="Envio de Noticias Usal",
+page_title="Envio de Boletín Clayss",
 page_icon="https://noticias.clayss.org/sites/default/files/favicon.ico.png",
 layout="wide",
 initial_sidebar_state="expanded",
@@ -116,7 +116,7 @@ today = date.today()
 
 hoy2=today.strftime('%d-%m-%y')
     #SHEET_ID = '12D4hfpuIkT7vM69buu-v-r-UYb8xx4wM1zi-34Fs9ck'
-data=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv')
+data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv')
 data=data.sort_values(by=['orden'],ascending=False)
 # Create the pandas DataFrame
 #df0 = pd.DataFrame(data, columns=['Webinar', 'Planilla'])
@@ -144,7 +144,7 @@ if display_code == 'Enviar boletín':
 if display_code=='Enviar boletín':
     #st.write(news)
     st.markdown ('<!DOCTYPE html><html><body><a href="https://noticias.usal.edu.ar"><img  width="800" src="'+a+'" /></a></body></html>', unsafe_allow_html=True)
-    data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=91437221')
+    data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=91437221')
     df0 = pd.DataFrame(data, columns=['nombre', 'base'])
     df0=df0.sort_values(by=['nombre'],ascending=True)
     values = df0['nombre'].tolist()
@@ -236,7 +236,7 @@ Web: <a href="https://noticias.usal.edu.ar">https://noticias.usal.edu.ar/es</a><
       st.sidebar.write(news+' Enviada')
 if display_code == "No enviados":
   #buff1.markdown("<h5>Envio</h5>", unsafe_allow_html=True)
-  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=70901914')
+  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=70901914')
   #datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
   datan=datan.sort_values(by=['orden'],ascending=False)
   countries = datan['fecha'].unique()
@@ -267,7 +267,7 @@ if display_code == "No enviados":
   #dupli.index = [""] * len(dupli) 
   #st.table(dupli)
 if display_code == "Enviados":
-  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=70901914')
+  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=70901914')
   #datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
   datan=datan.sort_values(by=['orden'],ascending=False)
   #buff1.markdown("<h5>Envio</h5>", unsafe_allow_html=True)
