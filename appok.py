@@ -128,7 +128,7 @@ if display_code=='Enviar Boletín':
     options = df0['base'].tolist()
     dic = dict(zip(options, values))
     a = st.sidebar.selectbox('Seleccionar base:', options, format_func=lambda x: dic[x])
-    sheet = gclient.open('noticiasclayss').worksheet(a)
+    sheet = gclient.open('noticiasclayssf').worksheet(a)
     row_values_list = sheet.get_all_records()
 
 
