@@ -111,7 +111,7 @@ row_values_list = sheet.get_all_records()
 from_email = 'pruebas@clayss.org'
 password = 'pruebas2021'
 st.sidebar.markdown('<img style="float: left;width:100%;margin-top:-40px;" src="https://noticias.clayss.org/sites/default/files/logo.png" />', unsafe_allow_html=True)
-display_code =   st.sidebar.radio("Mostrar", ( "Enviar Newsletter","No enviados", "Enviados"))
+display_code =   st.sidebar.radio("Mostrar", ( "Enviar boletín","No enviados", "Enviados"))
 today = date.today()
 
 hoy2=today.strftime('%d-%m-%y')
@@ -126,8 +126,8 @@ options = data['imagen'].tolist()
 
 dic = dict(zip(options, values))
 
-if display_code == 'Enviar Newsletter':
-   a = buff1.selectbox('Seleccionar Newsletter:', options, format_func=lambda x: dic[x])
+if display_code == 'Enviar boletín':
+   a = buff1.selectbox('Seleccionar boletín:', options, format_func=lambda x: dic[x])
 
    news=data["newsletter"].loc[data["imagen"] == a].to_string(index = False)
    orden2=data["orden"].loc[data["imagen"] == a].to_string(index = False)
@@ -141,7 +141,7 @@ if display_code == 'Enviar Newsletter':
 
 
 # iterate on every row of the Google Sheet
-if display_code=='Enviar Newsletter':
+if display_code=='Enviar boletín':
     #st.write(news)
     st.markdown ('<!DOCTYPE html><html><body><a href="https://noticias.usal.edu.ar"><img  width="800" src="'+a+'" /></a></body></html>', unsafe_allow_html=True)
     data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1meITYOoR_Mh34RjXrI5-gsI7SzPb_JlaHpsvqtcecm4/export?format=csv&gid=91437221')
@@ -151,7 +151,7 @@ if display_code=='Enviar Newsletter':
     options = df0['base'].tolist()
     dic = dict(zip(options, values))
     a = st.sidebar.selectbox('Seleccionar base:', options, format_func=lambda x: dic[x])
-    sheet = gclient.open('noticiasclaussf').worksheet(a)
+    sheet = gclient.open('noticiasclayssf').worksheet(a)
     if st.sidebar.button('Enviar'):
       for row_value in row_values_list:
 
