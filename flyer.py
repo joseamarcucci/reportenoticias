@@ -115,13 +115,13 @@ today = date.today()
 
 hoy2=today.strftime('%d-%m-%y')
     #SHEET_ID = '12D4hfpuIkT7vM69buu-v-r-UYb8xx4wM1zi-34Fs9ck'
-data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv')
+data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=1295007447')
 #data=data.sort_values(by=['orden'],ascending=False)
 imagen=str(data.iloc[-1]['imagen'])
 news=str(data.iloc[-1]['newsletter'])
 # iterate on every row of the Google Sheet
 if display_code=='Enviar Boletín':
-    data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=91437221')
+    data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=1224603731')
     df0 = pd.DataFrame(data, columns=['nombre', 'base'])
     df0=df0.sort_values(by=['nombre'],ascending=True)
     values = df0['nombre'].tolist()
@@ -205,7 +205,7 @@ if display_code=='Enviar Boletín':
             sheet2.append_row([hoy2,a,to_email,news, 'No enviada; mal nombre en la cuenta'])
       st.sidebar.write(news+' Enviada')
 if display_code == "No enviados":
-  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=70901914')
+  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=607365779')
   datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
   datan=datan.sort_values(by=['fecha'],ascending=False)
   countries = datan['fecha'].unique()
@@ -236,7 +236,7 @@ if display_code == "No enviados":
   #dupli.index = [""] * len(dupli) 
   #st.table(dupli)
 if display_code == "Enviados":
-  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=70901914')
+  datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=607365779')
   datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
   datan=datan.sort_values(by=['fecha'],ascending=False)
   countries = datan['fecha'].unique()
