@@ -1,0 +1,426 @@
+<div id="message-content">
+			
+			<div class="rightcol" role="region" aria-labelledby="aria-label-messagebody">
+			
+				<div id="message-objects">
+
+
+				<div id="messagebody"><div class="message-htmlpart" id="message-htmlpart1"><!-- html ignored --><!-- head ignored --><!-- meta ignored -->
+<style type="text/css">#message-htmlpart1 div.rcmBody table tr td {
+  font-family: Arial;
+  font-size: 12px}</style>
+
+
+<div class="rcmBody">
+<div>
+  <table width="800px" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+      <td>
+        <div style="padding: 0px 0px 0px 0px">
+
+
+
+
+
+
+<style type="text/css">#message-htmlpart1 div.rcmBody html,#message-htmlpart1 div.rcmBody,#message-htmlpart1 div.rcmBody table,#message-htmlpart1 div.rcmBody tbody,#message-htmlpart1 div.rcmBody tr,#message-htmlpart1 div.rcmBody td,#message-htmlpart1 div.rcmBody div,#message-htmlpart1 div.rcmBody p,#message-htmlpart1 div.rcmBody ul,#message-htmlpart1 div.rcmBody ol,#message-htmlpart1 div.rcmBody li,#message-htmlpart1 div.rcmBody h1,#message-htmlpart1 div.rcmBody h2,#message-htmlpart1 div.rcmBody h3,#message-htmlpart1 div.rcmBody h4,#message-htmlpart1 div.rcmBody h5,#message-htmlpart1 div.rcmBody h6 {
+margin: 0;
+padding: 0}
+
+#message-htmlpart1 div.rcmBody {
+-ms-text-size-adjust: 100%;
+-webkit-text-size-adjust: 100%}
+
+#message-htmlpart1 div.rcmBody table {
+border-spacing: 0;
+mso-table-lspace: 0pt;
+mso-table-rspace: 0pt}
+
+#message-htmlpart1 div.rcmBody table td {
+border-collapse: collapse}
+
+#message-htmlpart1 div.rcmBody h1,#message-htmlpart1 div.rcmBody h2,#message-htmlpart1 div.rcmBody h3,#message-htmlpart1 div.rcmBody h4,#message-htmlpart1 div.rcmBody h5,#message-htmlpart1 div.rcmBody h6 {
+font-family: 'Google sans', Verdana}
+
+#message-htmlpart1 div.rcmBody .v1ExternalClass {
+width: 100%}
+
+#message-htmlpart1 div.rcmBody .v1ExternalClass,
+#message-htmlpart1 div.rcmBody .v1ExternalClass p,
+#message-htmlpart1 div.rcmBody .v1ExternalClass span,
+#message-htmlpart1 div.rcmBody .v1ExternalClass font,
+#message-htmlpart1 div.rcmBody .v1ExternalClass td,
+#message-htmlpart1 div.rcmBody .v1ExternalClass div {
+line-height: 100%}
+
+
+#message-htmlpart1 div.rcmBody .v1ReadMsgBody {
+width: 100%}
+
+#message-htmlpart1 div.rcmBody img {
+-ms-interpolation-mode: bicubic;
+border:1px solid #f15c24}
+
+#message-htmlpart1 div.rcmBody .v1titu{
+    font-family:'Google sans', Verdana;
+ font-size: 18px;
+    color: #2c3850;
+    font-weight: 600;
+    line-height: 20px;
+ mso-line-height: exactly;
+  margin: 0;
+text-align: left;
+border-bottom: 2px solid #e65100;
+height:80px;
+    padding: 9px}
+#message-htmlpart1 div.rcmBody .v1titup{
+    font-family:'Google sans', Verdana;
+ font-size: 24px;
+    color: #2c3850;
+    font-weight: 500;
+    line-height: 20px;
+ mso-line-height: exactly;
+  margin: 0;
+text-align: left;
+border-bottom: 2px solid #e65100;
+height:80px;
+    padding: 9px}
+#message-htmlpart1 div.rcmBody .v1leer{
+    color: #fff!important;
+    font-family: 'Google sans', Verdana;
+    font-size: 12px;
+    
+    line-height: 14px;
+    text-align: right;
+    padding: 8px;
+    letter-spacing: normal;
+    border: 0px none;
+    border-radius: 5px;
+    border-collapse: separate!important;
+    background-color: #e65100;
+text-align:right}
+#message-htmlpart1 div.rcmBody .v1fecha{
+    font-family:'Google sans', Verdana;
+font-size:12px;
+color:#989fa7;
+text-align:right;
+padding-top:5px;
+padding-bottom:3px;
+border-bottom:1px solid #eeeeee}
+#message-htmlpart1 div.rcmBody .v1cate{
+    font-family:'Google sans', Verdana;
+font-size:14px;
+color:#e65100;
+text-align:right;
+padding-top:5px;
+font-weight: 500}
+#message-htmlpart1 div.rcmBody .v1cuerpo{
+
+font-family:'Google sans', Verdana;
+font-size:14px;
+color:#2c3850;
+line-height:18px;
+text-align:justify;
+padding:5px;
+margin-bottom:10px;
+height:80px}
+
+#message-htmlpart1 div.rcmBody #v1icon-expand-des {
+    position: absolute;
+  
+    color: #e65100;
+    z-index: 8;
+    font-size: 28px}
+#message-htmlpart1 div.rcmBody #v1icon-expand-des img{
+
+    border:0}</style>
+
+
+<style type="text/css">#message-htmlpart1 div.rcmBody a[x-apple-data-detectors=true]{
+color: inherit !important;
+text-decoration: inherit !important}
+
+#message-htmlpart1 div.rcmBody u + #v1body a {
+color: inherit;
+text-decoration: inherit !important;
+font-size: inherit;
+font-family: inherit;
+font-weight: inherit;
+line-height: inherit}
+
+#message-htmlpart1 div.rcmBody a, #message-htmlpart1 div.rcmBody a:link, #message-htmlpart1 div.rcmBody .v1no-detect-local a, #message-htmlpart1 div.rcmBody .v1appleLinks a {
+color: inherit !important;
+text-decoration: inherit}</style>
+
+
+<style type="text/css">#message-htmlpart1 div.rcmBody .v1width800 {
+width: 800px;
+max-width: 100%}
+
+@media all and (max-width: 799px) {
+#message-htmlpart1 div.rcmBody .v1width800 {
+width: 100% !important}
+}
+
+@media screen and (min-width: 600px) {
+#message-htmlpart1 div.rcmBody .v1hide-on-desktop {
+display: none !important}
+}
+
+@media all and (max-width: 599px),
+#message-htmlpart1 div.rcmBody only screen and (max-device-width: 599px) {
+#message-htmlpart1 div.rcmBody .v1main-container {
+width: 100% !important}
+
+#message-htmlpart1 div.rcmBody .v1col {
+width: 100%}
+
+#message-htmlpart1 div.rcmBody .v1fluid-on-mobile { 
+width: 100% !important;
+height: auto !important;
+ 
+text-align:center}
+
+#message-htmlpart1 div.rcmBody .v1fluid-on-mobile img {
+width: 100% !important}
+
+#message-htmlpart1 div.rcmBody .v1hide-on-mobile { 
+display:none !important;
+ 
+width:0px !important;
+height:0px !important;
+ 
+overflow:hidden;
+ 
+}
+}</style>
+
+
+
+
+
+
+<div class="rcmBody" id="v1body" marginwidth="0" marginheight="0" offset="0" style="font-family: 'Google sans', Verdana, sans-serif; font-size: 0px; margin: 0; padding: 0">
+
+<style type="text/css">@media screen and (min-width: 600px) {
+#message-htmlpart1 div.rcmBody .v1hide-on-desktop {
+display: none}
+}
+
+@media all and (max-width: 599px) {
+#message-htmlpart1 div.rcmBody .v1hide-on-mobile { 
+display:none !important;
+ 
+width:0px !important;
+height:0px !important;
+ 
+overflow:hidden;
+ 
+}
+#message-htmlpart1 div.rcmBody .v1main-container {
+width: 100% !important}
+#message-htmlpart1 div.rcmBody .v1col {
+width: 100%}
+
+#message-htmlpart1 div.rcmBody .v1fluid-on-mobile { 
+width: 100% !important;
+height: auto !important;
+ 
+text-align:center}
+
+#message-htmlpart1 div.rcmBody .v1fluid-on-mobile img {
+width: 100% !important}
+}</style>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="border: 2px solid #571d0f">
+<tbody><tr>
+<td width="100%">
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tbody><tr>
+<td align="center" width="100%">
+
+<table class="v1width800 v1main-container" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width: 800px">
+<tbody><tr>
+<td width="100%">
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tbody><tr>
+
+<td valign="top">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff" style="background-color: #ffffff">
+<tbody><tr>
+
+<td valign="top" style="padding: 5px"><table cellpadding="0" cellspacing="0" border="0" width="100%" class="v1mcol">
+<tbody><tr>
+<td valign="top" style="padding: 0; mso-cellspacing: 0in">
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="v1col" align="left">
+<tbody><tr>
+<td valign="top" width="100%" style="padding: 0">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="v1col" align="left">
+<tbody><tr>
+<td valign="top" width="100%" style="padding: 0">
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tbody><tr>
+<td valign="top" style="padding-top: 20px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px">
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tbody><tr>
+
+<td valign="top" style="padding: 5px"><div style="font-family: 'Google sans', Verdana; font-size: 18px; color: #2c3850; font-weight: 500; line-height: 22px; padding: 0; margin: 0; text-align: center">CONVOCATORIA-Acompañamiento Virtual a Instituciones</div>
+</td>
+
+</tr>
+</tbody></table>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tbody><tr>
+
+<td style="padding: 5px; border-bottom: 1px solid #f15c24">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-top: 1px solid #">
+<tbody><tr>
+
+<td style="font-size: 0px; line-height: 0">&nbsp;
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+
+</td>
+
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+<tbody><tr>
+
+<td align="left" style="padding: 20px" valign="top"><div style="font-family: 'Google sans', Verdana; font-size: 14px; color: #2c3850;  line-height: 22px; padding: 0; margin: 0; text-align: left">
+        <div>
+          <p>CHAMADA<br>O Programa AeSS nas Artes (CLAYSS) convoca instituições da Argentina, Brasil, Colômbia e Peru para participar do Acompanhamento Virtual às Instituições (AVI) 2021.</p><br>
+<a href="https://bit.ly/3vSJMM7">https://bit.ly/3vSJMM7</a>
+<a href="https://www.tfaforms.com/4913545" target="_blank"><img src="https://noticias.clayss.org/mails/convocatoriap2021.jpg" style="width: 100%; text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; display: block" /></a></td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tbody><tr>
+<td align="center" width="100%">
+
+<table class="v1width800 v1main-container" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width: 800px">
+<tbody><tr>
+<td width="100%">
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tbody><tr>
+
+<td valign="top">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff" style="background-color: #ffffff">
+<tbody><tr>
+
+<td valign="top" style="padding-top: 20px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px"><table cellpadding="0" cellspacing="0" border="0" width="100%" class="v1mcol">
+<tbody><tr>
+<td valign="top" style="padding: 0; mso-cellspacing: 0in">
+
+
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="v1col" align="left">
+<tbody><tr>
+<td valign="top" width="100%" style="padding: 0">
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tbody><tr>
+
+</tr></tbody></table><table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tbody><tr>
+
+<td align="center"><div>
+<img style="width: 99%; text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; display: block" src="https://noticias.clayss.org/sites/default/files/inline-images/piem.png" usemap="#Map">
+</div></td>
+</tr>
+</tbody></table>
+</td></tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+
+
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+
+</div></div></td>
+</tr>
+</tbody></table><div style="color: #555555; line-height: 1.2; padding: 10px"></div> 
+</div></div></div> <map name="Map">
+  <area shape="rect" coords="27,131,162,161" href="https://www.clayss.org.ar" target="_blank" rel="noreferrer">
+  <area shape="rect" coords="551,138,582,168" href="https://www.facebook.com/CLAYSSDIGITAL/" target="_blank" rel="noreferrer">
+  <area shape="rect" coords="595,137,622,168" href="https://www.instagram.com/clayssdigital/" target="_blank" rel="noreferrer">
+  <area shape="rect" coords="640,142,663,165" href="https://twitter.com/clayssdigital" target="_blank" rel="noreferrer">
+  <area shape="rect" coords="678,137,704,159" href="https://www.youtube.com/user/clayssdigital" target="_blank" rel="noreferrer">
+  <area shape="rect" coords="722,140,750,161" href="https://www.linkedin.com/company/centro-latinoamericano-de-aprendizaje-y-servicio-solidario/" target="_blank" rel="noreferrer">
+  <area shape="rect" coords="763,139,787,164" href="#v1">
+ </map>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      
+    
+  
+
+
+</div>
+</div>
