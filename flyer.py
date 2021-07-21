@@ -149,7 +149,7 @@ if display_code=='Enviar Boletín':
     r = requests.get(url)
 
 
-    components.html(soup1, width=1000, height=5500)
+    components.html(soup1, width=1000, height=7500)
 
     if st.sidebar.button('Enviar'):
       for row_value in row_values_list:
