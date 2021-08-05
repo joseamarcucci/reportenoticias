@@ -119,6 +119,14 @@ data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K
 #data=data.sort_values(by=['orden'],ascending=False)
 imagen=str(data.iloc[-1]['imagen'])
 news=str(data.iloc[-1]['newsletter'])
+df01 = pd.DataFrame(data, columns=['orden','newsletter', 'imagen'])
+df01=df01.sort_values(by=['orden'],ascending=False)
+values1 = df01['newsletter'].tolist()
+options1 = df01['imagen'].tolist()
+dic = dict(zip(options1, values1))
+imagen = st.sidebar.selectbox('Seleccionar boletín:', options1, format_func=lambda x: dic[x])
+x = df01.loc[df01.imagen == imagen, "newsletter"]
+news=x.to_list()[0]
 # iterate on every row of the Google Sheet
 if display_code=='Enviar Boletín':
     data = data=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=1224603731')
