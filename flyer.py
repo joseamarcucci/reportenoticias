@@ -215,7 +215,7 @@ if display_code=='Enviar Boletín':
 if display_code == "No enviados":
   datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=607365779')
   datan=datan[datan['newsletter'] == news]
-  datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
+  #datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
   datan=datan.sort_values(by=['fecha'],ascending=False)
   countries = datan['fecha'].unique()
   country = buff1.selectbox('Fecha:', countries)
@@ -247,7 +247,7 @@ if display_code == "No enviados":
 if display_code == "Enviados":
   datan=pd.read_csv('https://docs.google.com/spreadsheets/d/1TlT34mRvnvhilrY1PfKt-K6tvhKtfdID0fTYJc3CuBw/export?format=csv&gid=607365779')
   datan=datan[datan['newsletter'] == news]
-  datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
+  #datan['fecha'] = pd.to_datetime(datan['fecha']).dt.strftime('%d/%m/%y')
   datan=datan.sort_values(by=['fecha'],ascending=False)
   countries = datan['fecha'].unique()
   country = buff1.selectbox('Fecha:', countries)
