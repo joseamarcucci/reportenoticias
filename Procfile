@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run flyer.py
+web: sh setup.sh && streamlit run clayssjet.py
